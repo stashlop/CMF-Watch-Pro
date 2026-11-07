@@ -7,7 +7,7 @@ from ble.safety import FORBIDDEN_METHODS, ReadOnlyClient, ReadOnlyViolation
 
 ROOT = Path(__file__).resolve().parents[1]
 CALL = re.compile(r"\.(%s)\s*\(" % "|".join(FORBIDDEN_METHODS))
-SOURCE_DIRS = ("ble", "watchface")
+SOURCE_DIRS = ("ble", "watchface", "omnitrix", "deploy")
 
 
 class FakeClient:
