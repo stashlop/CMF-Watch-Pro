@@ -1,0 +1,14 @@
+{
+  "name": "Activity Rings",
+  "background": "#000000",
+  "elements": [
+    {"type": "arc", "box": [60, 70, 350, 360], "progress": "steps", "width": 20, "fill": "#ff6a13", "track": "#2b1407"},
+    {"type": "arc", "box": [92, 102, 318, 328], "progress": "battery", "width": 20, "fill": "#3ddc84", "track": "#0e2a19"},
+    {"type": "text", "text": "{now:%H:%M}", "xy": [205, 205], "anchor": "mm", "font": "segoeuib.ttf", "size": 66, "fill": "#ffffff"},
+    {"type": "text", "text": "{now:%a %d}", "xy": [205, 258], "anchor": "mm", "font": "segoeui.ttf", "size": 26, "fill": "#9a9a9a"},
+    {"type": "rect", "xy": [70, 398, 340, 468], "radius": 35, "fill": "#141414"},
+    {"type": "circle", "center": [112, 433], "r": 9, "fill": "#ff3b4e"},
+    {"type": "text", "text": "{heart_rate} bpm", "xy": [135, 433], "anchor": "lm", "font": "segoeuib.ttf", "size": 28, "fill": "#ffffff"},
+    {"type": "text", "text": "{steps:,}", "xy": [320, 433], "anchor": "rm", "font": "segoeui.ttf", "size": 24, "fill": "#ff6a13"}
+  ]
+}

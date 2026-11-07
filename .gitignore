@@ -20,3 +20,9 @@ build/
 # OS
 Thumbs.db
 .DS_Store
+
+# Local device captures (contain this watch's Bluetooth address) and rendered previews
+data/scans/*
+data/gatt/*
+data/previews/*
+!data/**/.gitkeep
