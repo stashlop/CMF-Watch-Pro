@@ -1,0 +1,14 @@
+{
+  "name": "Minimal Digital",
+  "background": "#000000",
+  "elements": [
+    {"type": "text", "text": "{now:%a %d %b}", "xy": [205, 92], "anchor": "mm", "font": "segoeui.ttf", "size": 30, "fill": "#9a9a9a"},
+    {"type": "text", "text": "{now:%H:%M}", "xy": [205, 225], "anchor": "mm", "font": "segoeuib.ttf", "size": 128, "fill": "#ffffff"},
+    {"type": "text", "text": "{now:%S}", "xy": [205, 318], "anchor": "mm", "font": "segoeuib.ttf", "size": 36, "fill": "#ff6a13"},
+    {"type": "line", "xy": [60, 372, 350, 372], "fill": "#262626", "width": 2},
+    {"type": "text", "text": "BATTERY", "xy": [115, 400], "anchor": "mm", "font": "segoeui.ttf", "size": 18, "fill": "#6b6b6b"},
+    {"type": "text", "text": "{battery}%", "xy": [115, 436], "anchor": "mm", "font": "segoeuib.ttf", "size": 34, "fill": "#ffffff"},
+    {"type": "text", "text": "STEPS", "xy": [295, 400], "anchor": "mm", "font": "segoeui.ttf", "size": 18, "fill": "#6b6b6b"},
+    {"type": "text", "text": "{steps:,}", "xy": [295, 436], "anchor": "mm", "font": "segoeuib.ttf", "size": 34, "fill": "#ffffff"}
+  ]
+}
