@@ -45,11 +45,30 @@ All other CCCDs read `0000`.
 ### Connection behaviour (Windows)
 - The first `inspect_gatt` attempt right after a scan once failed; an immediate retry succeeded.
 
+## Vendor service roles (documented, not yet confirmed on this watch)
+
+Source: Gadgetbridge's open-source CMF Watch Pro driver (AGPLv3), read 2026-11-07. These are what the UUIDs
+mean in the official protocol. They match the write/notify UUIDs observed above but have **not** been confirmed
+by traffic from this watch, so they stay out of "Verified".
+
+| Observed service | Documented role |
+|---|---|
+| `0000fff0` (FFF2 write / FFF1 notify) | Command channel: settings, notifications, music info, find-watch, alarms, watch-face switch |
+| `02f00000-…ffe0` (ffe1/ffe2) | Bulk data channel: watch-face and AGPS upload |
+| `02f00000-…fe00` (ff01/ff02) | Firmware channel |
+| `77d4e67c-…` (ff01/ff02) | Factory "AT" shell, e.g. `AT GETSECRET` |
+
+- Framing: `0xF5`, length, cmd1, chunk count, chunk index, cmd2, payload. Most payloads AES-128-CBC encrypted
+  with a per-session key; fixed IV in the driver. Pairing needs a server-issued key "K1" (not derivable locally).
+- Native/photo face container (`CmfFwHelper`): header + tag tree + resources + duplicated footer + two CRC32s;
+  a generation byte is `02` on the original Watch Pro and `00` on Pro 2/3. Full tree semantics unknown.
+- Full analysis in `omnitrix-feasibility-report.md`.
+
 ## Unverified / to check
 
-- Which vendor service carries the companion-app protocol, OTA, or face upload — unknown.
-  Finding out would require observing the phone app's traffic (e.g. an Android HCI snoop log),
-  not writing to the watch.
+- The service roles above are from Gadgetbridge, not confirmed by this watch's own traffic. Confirming them
+  would require a passive capture of the official app (e.g. an Android HCI snoop log), not writing to the watch.
+- Pro 1 SoC: the FCC internal-photos exhibit (FCC ID 2AZEQ-D395) may identify it. Not yet retrieved.
 - Classic-BT HFP entry reports VID `0x10D6` / PID `0xB009` (from Windows device manager);
   the chipset vendor has not been confirmed.
 - Model string "lark" may be an internal codename; not checked against other units.

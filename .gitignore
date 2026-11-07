@@ -25,4 +25,12 @@ Thumbs.db
 data/scans/*
 data/gatt/*
 data/previews/*
+data/exports/*
+data/deploy/*
+data/companion/*
 !data/**/.gitkeep
+
+# ESP32 firmware: generated asset pack + manifest (python -m esp32.assets) and PlatformIO build output
+esp32/firmware/data/
+esp32/firmware/src/assets_manifest.h
+esp32/firmware/.pio/

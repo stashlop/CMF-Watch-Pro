@@ -1,2 +1,4 @@
 bleak==3.0.2
 pillow==13.0.0
+cryptography==44.0.0  # companion/ only: AES-128-CBC for the documented CMF command protocol
+pyserial==3.5  # esp32.settime only
